@@ -20,7 +20,7 @@ class Track:
     def draw_line(self) -> None:
         # get points for line
         if self.special_elipse:
-            x = (6 * np.sin(self.offset)) / (5 - 3 * np.cos(2 * self.offset))
+            x = (6 * np.sin(np.pi*(6/23))) / (5 - 3 * np.cos(2 * np.pi*(6/23)))
         else:
             x = 1
         start = Point(
