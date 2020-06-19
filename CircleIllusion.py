@@ -7,7 +7,7 @@ class CircleIllusion:
     Draw a circle created out of balls moving on seperate tracks using pygame
     """
 
-    def __init__(self, width, height, radius = 280, speed = 0.05):
+    def __init__(self, width, height, radius = 280, speed = 0.005):
         self.size = Point(width, height)
         self.radius = radius
         self.speed = speed
@@ -16,21 +16,10 @@ class CircleIllusion:
         pygame.display.set_caption("Circle Illusion")
         self.screen = pygame.display.set_mode(self.size)
         self.tracks = []
-        self.create_tracks(50)
+        self.create_tracks(1500)
 
     def create_tracks(self, num: int) -> None:
-        offset = Point(self.size.x // 2, self.size.y // 2)
-        i = 0
-        while i < np.pi:
-            x = int(self.radius * np.cos(i))
-            y = int(self.radius * np.sin(i))
-            start = Point(x + offset.x, y + offset.y)
-            end = Point(-x + offset.x, -y + offset.y)
-            angle = i
-            increasing = True
-            percentage = 100 * angle / np.pi
-            self.tracks.append(Track(self.screen, start, end, percentage, increasing))
-            i += np.pi / num
+        self.tracks.append(Track(self.screen, Point(self.size.x // 2, self.size.y // 2), self.radius, 0, 0))
 
     def run(self) -> None:
         while self.running:
