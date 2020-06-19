@@ -14,15 +14,22 @@ class Track:
         self.offset = offset
 
     def draw(self) -> None:
-        x = int(self.radius * np.cos(self.theta))
-        y = 0
+        # initial horizontal movement
         pos = Point(
-                int(self.center.x + np.cos(self.offset) * x - np.sin(self.offset) * y),
-                int(self.center.y + np.sin(self.offset) * x + np.cos(self.offset) * y)
+                int(self.radius * np.cos(self.theta)) + self.center.x,
+                self.center.y
                 )
+        pos = Track.rotate(self.offset, pos, self.center)
         pygame.draw.circle(self.screen, (255, 0, 0), pos, 10)
 
     def update(self, speed: float) -> None:
         self.theta += speed
         if self.theta > np.pi * 2:
             self.theta = 0
+
+    @staticmethod
+    def rotate(angle: float, point: Point, center: Point = Point(0, 0)) -> Point:
+        return Point(
+                int(center.x + np.cos(angle) * (point.x - center.x) - np.sin(angle) * (point.y - center.y)),
+                int(center.y + np.sin(angle) * (point.x - center.x) + np.cos(angle) * (point.y - center.y))
+                )

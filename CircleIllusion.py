@@ -15,7 +15,7 @@ class CircleIllusion:
         pygame.display.init()
         pygame.display.set_caption("Circle Illusion")
         self.screen = pygame.display.set_mode(self.size)
-        self.create_tracks(6)
+        self.create_tracks(15)
 
     def create_tracks(self, num: int) -> None:
         self.tracks = []
