@@ -39,7 +39,8 @@ class Track:
                 )
         pos = Track.rotate(self.offset, pos, self.center)
         # draw main point
-        pygame.draw.circle(self.screen, (255, 0, 0), pos, 10)
+        color = Track.get_color(self.offset)
+        pygame.draw.circle(self.screen, color, pos, 10)
 
     def draw(self) -> None:
         self.draw_line()
@@ -56,3 +57,9 @@ class Track:
                 int(center.x + np.cos(angle) * (point.x - center.x) - np.sin(angle) * (point.y - center.y)),
                 int(center.y + np.sin(angle) * (point.x - center.x) + np.cos(angle) * (point.y - center.y))
                 )
+
+    @staticmethod
+    def get_color(angle: float) -> pygame.Color:
+        color = pygame.Color(0, 0, 0)
+        color.hsva = (angle * 2 / np.pi * 180, 100, 100, 100)
+        return color
