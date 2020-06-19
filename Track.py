@@ -34,9 +34,12 @@ class Track:
 
     def draw_point(self) -> None:
         # get main point
-        fancy = (6 * np.sin(self.theta)) / (5 - 3 * np.cos(2 * self.theta))
+        if self.special_elipse:
+            x = (6 * np.sin(self.theta)) / (5 - 3 * np.cos(2 * self.theta))
+        else:
+            x = np.cos(self.theta)
         pos = Point(
-                int(self.radius * (fancy if self.special_elipse else np.cos(self.theta)) + self.center.x),
+                int(self.radius * x + self.center.x),
                 self.center.y
                 )
         pos = Track.rotate(self.offset, pos, self.center)
