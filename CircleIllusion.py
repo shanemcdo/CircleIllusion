@@ -44,7 +44,9 @@ class CircleIllusion:
             pygame.display.update()
 
     def kbin(self, key: str) -> None:
-        if key == '-':
+        if key == 'q':
+            self.running = False
+        elif key == '-':
             self.number_of_tracks -= 1
             if self.number_of_tracks < 1:
                 self.number_of_tracks = 1
