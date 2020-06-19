@@ -53,9 +53,7 @@ class Track:
         pygame.draw.circle(self.screen, Track.get_color(self.offset), pos, 10)
 
     def update(self, speed: float) -> None:
-        self.theta += speed
-        if self.theta > np.pi * 2:
-            self.theta = 0
+        self.theta = (self.theta + speed) % (np.pi * 2)
 
     @staticmethod
     def rotate(angle: float, point: Point, center: Point = Point(0, 0)) -> Point:
