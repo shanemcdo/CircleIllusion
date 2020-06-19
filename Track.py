@@ -19,14 +19,20 @@ class Track:
 
     def draw_line(self) -> None:
         # get points for line
+        if self.special_elipse:
+            x = (6 * np.sin(self.offset)) / (5 - 3 * np.cos(2 * self.offset))
+        else:
+            x = 1
         start = Point(
-                int(self.center.x + np.cos(self.offset) * self.radius),
-                int(self.center.y + np.sin(self.offset) * self.radius)
+                int(self.center.x + x * self.radius),
+                self.center.y
                 )
         end = Point(
                 self.center.x - (start.x - self.center.x),
                 self.center.y - (start.y - self.center.y),
                 )
+        start = Track.rotate(self.offset, start, self.center)
+        end = Track.rotate(self.offset, end, self.center)
         # draw line
         pygame.draw.circle(self.screen, (128, 128, 128), start, 3)
         pygame.draw.circle(self.screen, (128, 128, 128), end, 3)
