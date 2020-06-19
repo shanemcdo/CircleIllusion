@@ -7,7 +7,7 @@ class CircleIllusion:
     Draw a circle created out of balls moving on seperate tracks using pygame
     """
 
-    def __init__(self, width, height, radius = 280, speed = 0.005):
+    def __init__(self, width: int, height: int, radius: int = 280, speed: float = 0.005):
         self.size = Point(width, height)
         self.radius = radius
         self.speed = speed
