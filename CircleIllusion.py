@@ -66,3 +66,14 @@ class CircleIllusion:
             for track in self.tracks:
                 track.special_elipse = not track.special_elipse
 
+    @staticmethod
+    def print_controls() -> None:
+        print("=" * 75)
+        print("- - Decrease number of tracks")
+        print("+ - Increase number of tracks")
+        print("[ - Decrease speed")
+        print("] = Increase speed")
+        print("l - Toggle lines")
+        print("s - Toggle special elipse")
+        print("q - Quit")
+        print("=" * 75)
