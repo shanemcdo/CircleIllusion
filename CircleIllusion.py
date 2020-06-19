@@ -18,6 +18,7 @@ class CircleIllusion:
         self.screen = pygame.display.set_mode(self.size)
         self.number_of_tracks = 15
         self.create_tracks(self.number_of_tracks)
+        self.show_lines = True
 
     def create_tracks(self, num: int) -> None:
         self.tracks = []
@@ -34,8 +35,11 @@ class CircleIllusion:
                 elif event.type == pygame.KEYDOWN:
                     self.kbin(event.unicode)
             self.screen.fill((0, 0, 0))
+            if self.show_lines:
+                for track in self.tracks:
+                    track.draw_line()
             for track in self.tracks:
-                track.draw()
+                track.draw_point()
                 track.update(self.speed)
             pygame.display.update()
 
@@ -48,3 +52,5 @@ class CircleIllusion:
         elif key == '+':
             self.number_of_tracks += 1
             self.create_tracks(self.number_of_tracks)
+        elif key == 'l':
+            self.show_lines = not self.show_lines
