@@ -39,8 +39,7 @@ class Track:
                 )
         pos = Track.rotate(self.offset, pos, self.center)
         # draw main point
-        color = Track.get_color(self.offset)
-        pygame.draw.circle(self.screen, color, pos, 10)
+        pygame.draw.circle(self.screen, Track.get_color(self.offset), pos, 10)
 
     def draw(self) -> None:
         self.draw_line()
