@@ -24,7 +24,7 @@ class CircleIllusion:
         self.tracks = []
         i = 0 
         while i < np.pi:
-            self.tracks.append(Track(self.screen, Point(self.size.x // 2, self.size.y // 2), self.radius, i, i))
+            self.tracks.append(Track(self.screen, Point(self.size.x // 2, self.size.y // 2), self.radius, i))
             i += np.pi / num
 
     def run(self) -> None:
