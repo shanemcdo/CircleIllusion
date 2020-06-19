@@ -54,3 +54,11 @@ class CircleIllusion:
             self.create_tracks(self.number_of_tracks)
         elif key == 'l':
             self.show_lines = not self.show_lines
+        elif key == '[':
+            self.speed -= 0.001
+            if self.speed == 0:
+                self.speed = 0
+        elif key == 's':
+            for track in self.tracks:
+                track.special_elipse = not track.special_elipse
+
