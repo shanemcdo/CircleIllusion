@@ -5,6 +5,9 @@ import numpy as  np
 Point = collections.namedtuple("Point", ['x', 'y'])
 
 class Track:
+    """
+    Draw a point moving along a track at a certain offset angle
+    """
 
     def __init__(self, screen: pygame.Surface, center: Point, radius: float, theta: float, offset: float):
         self.screen = screen
