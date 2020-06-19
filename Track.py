@@ -41,10 +41,6 @@ class Track:
         # draw main point
         pygame.draw.circle(self.screen, Track.get_color(self.offset), pos, 10)
 
-    def draw(self) -> None:
-        self.draw_line()
-        self.draw_point()
-
     def update(self, speed: float) -> None:
         self.theta += speed
         if self.theta > np.pi * 2:
