@@ -5,17 +5,17 @@ Point = collections.namedtuple("Point", ['x', 'y'])
 
 class Track:
 
-    def __init__(self, screen: pygame.Surface, start: Point, end: Point, percentage_from_start: float):
+    def __init__(self, screen: pygame.Surface, start: Point, end: Point, percentage_from_start: float, increasing: bool):
         self.screen = screen
         self.start = start
         self.end = end
         self.percentage_from_start = percentage_from_start
-        self.increasing = True
+        self.increasing = increasing
 
     def draw(self) -> None:
-        pygame.draw.circle(self.screen, (255, 255, 255), self.start, 3)
-        pygame.draw.circle(self.screen, (255, 255, 255), self.end, 3)
-        pygame.draw.line(self.screen, (255, 255, 255), self.start, self.end)
+        # pygame.draw.circle(self.screen, (255, 255, 255), self.start, 3)
+        # pygame.draw.circle(self.screen, (255, 255, 255), self.end, 3)
+        # pygame.draw.line(self.screen, (255, 255, 255), self.start, self.end)
         dec = self.percentage_from_start / 100
         pos = Point(
                 int((1 - dec) * self.start.x + dec * self.end.x),
