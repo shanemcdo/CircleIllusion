@@ -27,9 +27,9 @@ class Track:
                 self.center.y - (start.y - self.center.y),
                 )
         # draw line
-        pygame.draw.circle(self.screen, (255, 255, 255), start, 3)
-        pygame.draw.circle(self.screen, (255, 255, 255), end, 3)
-        pygame.draw.line(self.screen, (255, 255, 255), start, end)
+        pygame.draw.circle(self.screen, (128, 128, 128), start, 3)
+        pygame.draw.circle(self.screen, (128, 128, 128), end, 3)
+        pygame.draw.line(self.screen, (128, 128, 128), start, end)
 
     def draw_point(self) -> None:
         # get main point
